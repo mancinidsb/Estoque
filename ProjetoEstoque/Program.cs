@@ -1,4 +1,5 @@
 ﻿using System;
+using ProjetoEstoque.Entities;
 
 namespace ProjetoEstoque
 {
