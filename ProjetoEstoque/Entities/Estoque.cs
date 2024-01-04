@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace ProjetoEstoque.Entities
 {
@@ -21,7 +22,21 @@ namespace ProjetoEstoque.Entities
             }
         }
 
-        public Produto? PesquisaProduto(string? nome)
+        public string MostraProduto(string? nome)
+        {
+            Produto? prod = this.PesquisaProduto(nome);
+            if (prod != null)
+            {
+                return $"Nome: {prod.Nome} | Quantidade: {prod.Quantidade} | Venda Unitária: {prod.Preco}" +
+                    $" | Valor Total Dos Produto: {(prod.Preco*prod.Quantidade).ToString("F2", CultureInfo.InvariantCulture)} " +
+                    $"| Fornecedor: {prod.Fornecedor.Nome}";
+            }
+            else
+            {
+                return "";
+            }
+        }
+        private Produto? PesquisaProduto(string? nome)
         {
             foreach(Produto prod in this.Produtos)
             {
