@@ -5,7 +5,7 @@ namespace ProjetoEstoque.Entities
     internal static class Auxilia
     {
         //Classe Que Auxilia Na Classe Program
-        public static string? CriaCnpj()
+        public static string CriaCnpj()
         {
             int[] arrayNumbers = new int[10];
             Random random = new Random();
